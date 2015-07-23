@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+	    <title>Tur — <?php echo htmlspecialchars($_GET["gpx"]); ?></title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
          <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
@@ -18,8 +19,8 @@
     <body>
         <div id="map"></div>
          <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-         <script src="bower_components/L.TileLayer.Kartverket/dist/L.TileLayer.Kartverket.min.js"></script>
-         <script src="bower_components/leaflet-gpx/gpx.js"></script>
+         <script src="/bower_components/L.TileLayer.Kartverket/dist/L.TileLayer.Kartverket.min.js"></script>
+         <script src="/bower_components/leaflet-gpx/gpx.js"></script>
          <script type="text/javascript">
 
             (function () {
@@ -29,13 +30,13 @@
 
                 L.tileLayer.kartverket('topo2').addTo(map);
 
-                var gpx = 'innerdalen-20110522.gpx';
+                var gpx = '/gpx/<?php echo htmlspecialchars($_GET["gpx"]); ?>';
                 var options = {
                     async: true,
                     marker_options: {
-                        startIconUrl: 'bower_components/leaflet-gpx/pin-icon-start.png',
-                        endIconUrl: 'bower_components/leaflet-gpx/pin-icon-end.png',
-                        shadowUrl: 'bower_components/leaflet-gpx/pin-shadow.png'
+                        startIconUrl: '/bower_components/leaflet-gpx/pin-icon-start.png',
+                        endIconUrl: '/bower_components/leaflet-gpx/pin-icon-end.png',
+                        shadowUrl: '/bower_components/leaflet-gpx/pin-shadow.png'
                     }
                 };
 
